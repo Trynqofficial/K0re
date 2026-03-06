@@ -13,6 +13,18 @@ module.exports = {
         .addStringOption(opt => opt.setName('tresc_opinii').setDescription('Chcesz coś jeszcze dodać?').setRequired(true)),
 
     async execute(interaction) {
+        // KONFIGURACJA ID
+        const DOZWOLONY_SERWER = "1476957231034663153";
+        const DOZWOLONY_KANAL = "1479590983975833721";
+
+        // Sprawdzenie czy serwer i kanał się zgadzają
+        if (interaction.guildId !== DOZWOLONY_SERWER || interaction.channelId !== DOZWOLONY_KANAL) {
+            return await interaction.reply({ 
+                content: `Tej komendy można używać tylko na kanale <#${DOZWOLONY_KANAL}> na oficjalnym serwerze!`, 
+                ephemeral: true // Tylko użytkownik widzi ten błąd
+            });
+        }
+
         const embed = new EmbedBuilder()
             .setTitle('⭐ 𝙆𝙤𝙧𝙚 𝙎𝙝0𝙥 × 𝙊𝙋𝙄𝙉𝙄𝘼')
             .setColor(0x2b2d31)
