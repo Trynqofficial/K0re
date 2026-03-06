@@ -1,0 +1,7 @@
+{
+  "name": "kore-shop-bot",
+  "version": "1.0.0",
+  "main": "core.js",
+  "scripts": { "start": "node index.js" },
+  "dependencies": { "discord.js": "^14.13.0" }
+}
